@@ -19,10 +19,20 @@ string[] FillArray(int n) //Заполнение массива
     return array;
 }
 
+int CountStringArray(string[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length<4) count++;
+    }
+    return count;
+}
+
 int arraySize = EnterData("Введите размер массива");
 string[] array = FillArray(arraySize);
 for (int i = 0; i < arraySize; i++)
 {
     Console.WriteLine(array[i]);    
 }
-
+Console.WriteLine(CountStringArray(array));
