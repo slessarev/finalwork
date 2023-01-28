@@ -13,13 +13,13 @@ string[] FillArray(int n) //Заполнение массива
     string[] array = new string[n];
         for (int i = 0; i < n; i++)
         {
-            Console.Write($"Введите {i}-й элемент массива: ");
+            Console.Write($"Введите {i+1}-й элемент массива: ");
             array[i] = Console.ReadLine();
         }
     return array;
 }
 
-int CountStringArray(string[] array)
+int CountStringArray(string[] array) // Метод определения количества элементов, размер которых <=3
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -29,10 +29,30 @@ int CountStringArray(string[] array)
     return count;
 }
 
-int arraySize = EnterData("Введите размер массива");
-string[] array = FillArray(arraySize);
-for (int i = 0; i < arraySize; i++)
+string[] ThreeSymbbolsArray(int size, string[] array)
 {
-    Console.WriteLine(array[i]);    
+    string[] finalArray = new string[size];
+    int j=0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length<4) 
+        {
+            finalArray[j]=array[i];
+            j++;
+        }
+    }
+    return finalArray;
 }
-Console.WriteLine(CountStringArray(array));
+
+int arraySize = EnterData("Введите размер массива: ");
+string[] array = FillArray(arraySize);
+int numOfThreeSymbols = CountStringArray(array);
+string[] resultArray = ThreeSymbbolsArray(numOfThreeSymbols, array);
+
+//вывод итогового массива
+Console.WriteLine();
+for (int i = 0; i < numOfThreeSymbols; i++)
+{
+    Console.WriteLine(resultArray[i]);    
+}
+
