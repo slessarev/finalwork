@@ -43,7 +43,7 @@ string[] ThreeSymbbolsArray(int size, string[] array)
     }
     return finalArray;
 }
-
+Console.Clear();
 int arraySize = EnterData("Введите размер массива: ");
 string[] array = FillArray(arraySize);
 int numOfThreeSymbols = CountStringArray(array);
